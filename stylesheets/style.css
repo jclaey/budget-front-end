@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 5%;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+button {
+    cursor: pointer;
+}
+  
+h1 {
+    font-size: 36px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* header */
+header {
+    margin-bottom: 5rem;
+}
+
+/* inputs section */
+#inputs-section {
+    display: flex;
+    justify-content: center;
+}
+
+#inputs-section .input-group {
+    margin: 2rem 3rem;
+}
+
+#inputs-section .input-group div {
+    display: flex;
+}
+
+#inputs-section .input-group input {
+    width: 200px;
+    height: 35px;
+    font-size: 22px;
+    border-right: none;
+    border-left-width: 0.25px;
+    border-top-width: 0.25px;
+    border-bottom-width: 0.25px;
+}
+
+#inputs-section .input-group input.description {
+    width: 310px;
+    border: 0.25px solid black;
+    margin-bottom: 1rem;
+}
+
+#inputs-section .input-group label {
+    font-size: 22px;
+}
+
+#inputs-section .input-group button {
+    height: 35px;
+    border-left: none;
+    border-right-width: 0.25px;
+    border-top-width: 0.25px;
+    border-bottom-width: 0.25px;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+    width: 110px;
+}
+
+#inputs-section .input-group #expense-btn {
+    background-color: #c65353;
+}
+
+#inputs-section .input-group #income-btn {
+    background-color: #00b33c;
+}
+
+/* ledger section */
+#ledger {
+    width: 100%;
+    display: flex;
+}
+
+#ledger #expense-area {
+    width: 50%;
+}
+
+#ledger #income-area {
+    width: 50%;
+}

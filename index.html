@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <title>Budget App</title>
+</head>
+<body>
+    <header>
+        <h1>Budget App</h1>
+    </header>
+    <main>
+        <section id="inputs-section">
+            <div class="input-group">
+                <label for="expense-desc">Expense Description</label>
+                <div>
+                    <input type="text" id="expense-desc" class="description">
+                </div>
+                <label for="expense">Expense Amount</label>
+                <div>
+                    <input type="number" id="expense">
+                    <button id="expense-btn">Add Expense</button>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="income-desc">Income Description</label>
+                <div>
+                    <input type="text" id="income-desc" class="description">
+                </div>
+                <label for="income">Income Amount</label>
+                <div>
+                    <input type="number" id="income">
+                    <button id="income-btn">Add Income</button>
+                </div>
+            </div>
+        </section>
+        <section id="results-section">
+            <h2>My Ledger</h2>
+            <div id="ledger">
+                <div id="expense-area"></div>
+                <div id="income-area"></div>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+
+    <script src="scripts/index.js"></script>
+</body>
+</html>
