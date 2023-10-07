@@ -221,7 +221,7 @@ const renderMonth = () => {
     })
 
     setOptions(months, monthSelect)
-    const monthIndex = months.findIndex(year => year.title === monthSelect.value)
+    const monthIndex = months.findIndex(month => month.title === monthSelect.value)
     const month = months[monthIndex]
 
     const allMonths = {}
@@ -230,6 +230,7 @@ const renderMonth = () => {
         let limit = 0
         let totalSpent = 0
         let income = 0
+        let numMonths = 0
 
         storedBudget.years.forEach(year => {
             let targetMonth = year.months.find(m => m.title === month.title)
@@ -237,34 +238,51 @@ const renderMonth = () => {
             limit += targetMonth.limit
             totalSpent += targetMonth.totalSpent
             income += targetMonth.income
-        })
 
+            numMonths += 1
+        })
+ 
+        allMonths.numMonths = numMonths
         allMonths.limit = limit
+        allMonths.avgLimit = limit / numMonths
         allMonths.totalSpent = totalSpent
+        allMonths.avgTotalSpent = totalSpent / numMonths
         allMonths.variance = limit - totalSpent
+        allMonths.avgVariance = (limit - totalSpent) / numMonths
         allMonths.income = income
+        allMonths.avgIncome = income / numMonths
         allMonths.netIncome = income - totalSpent
+        allMonths.avgNetIncome = netIncome / numMonths
     }
 
     findValues()
     
-    const positiveVariance = month.variance > 0
-    const positiveIncome = month.income > 0
+    const positiveVariance = allMonths.variance > 0
+    const positiveAvgVariance = allMonths.avgVariance > 0
+    const positiveIncome = allMonths.income > 0
+    const positiveAvgIncome = allMonths.avgIncome > 0
 
     output += `
         <div>
             <h3>${month.title}</h3>
             <p>Total Spending Limit for All ${month.title} months: $${allMonths.limit}</p>
+            <p>Average Spending Limit for ${month.title} months: $${allMonths.avgLimit}</p>
             <p>Total Amount Spent for All ${month.title} months: $${allMonths.totalSpent}</p>
+            <p>Average Amount Spent for ${month.title} months: $${allMonths.avgTotalSpent}</p>
             <p>
                 Limit Variance for All ${month.title} months: $<span style="color: ${positiveVariance ? 'green' : 'red'};">
                 ${positiveVariance ? '+' : ''}${allMonths.variance}</span>
             </p>
+            <p>Average Limit Variance for ${month.title} months: $<span style="color: ${positiveAvgVariance ? 'green' : 'red'};">
+            ${positiveAvgVariance ? '+' : ''}${allMonths.avgVariance}</p>
             <p>Monthly Income for All ${month.title} months: $${allMonths.income}</p>
+            <p>Average Income for ${month.title} months: $${allMonths.avgIncome}</p>
             <p>
                 Net Monthly Income for All ${month.title} months: $<span style="color: ${positiveIncome ? 'green' : 'red'};">
                 ${positiveIncome ? '+' : ''}${allMonths.netIncome}</span>
             </p>
+            <p>Average Monthly Income for ${month.title} months: $<span style="color: ${positiveAvgIncome ? 'green' : 'red'};">
+            ${positiveAvgIncome ? '+' : ''}${allMonths.avgNetIncome}</span>
         </div>
     `
 
