@@ -252,7 +252,7 @@ const renderMonth = () => {
         allMonths.income = income
         allMonths.avgIncome = income / numMonths
         allMonths.netIncome = income - totalSpent
-        allMonths.avgNetIncome = netIncome / numMonths
+        allMonths.avgNetIncome = (income - totalSpent) / numMonths
     }
 
     findValues()
@@ -281,7 +281,7 @@ const renderMonth = () => {
                 Net Monthly Income for All ${month.title} months: $<span style="color: ${positiveIncome ? 'green' : 'red'};">
                 ${positiveIncome ? '+' : ''}${allMonths.netIncome}</span>
             </p>
-            <p>Average Monthly Income for ${month.title} months: $<span style="color: ${positiveAvgIncome ? 'green' : 'red'};">
+            <p>Average Net Monthly Income for ${month.title} months: $<span style="color: ${positiveAvgIncome ? 'green' : 'red'};">
             ${positiveAvgIncome ? '+' : ''}${allMonths.avgNetIncome}</span>
         </div>
     `
