@@ -11,11 +11,39 @@
         <h1>Budget App</h1>
     </header>
     <main>
+        <section id="customize-section">
+            <div class="input-group" id="create-budget-category">
+                <div>
+                    <label for="budget-category-input">Create A Budget Category</label>
+                    <input type="text" id="budget-category-input">
+                    <button type="button" id="budget-category-btn">Create Category</button>
+                </div>
+            </div>
+            <div>
+                <h2>Set Category Spending Limit</h2>
+                <div class="input-group" id="category-spending-limit">
+                  <div>
+                    <label for="category-spending-select">Choose Category</label>
+                    <select name="categories" id="category-spending-select">
+                        <option value="">Please choose an option</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="set-category-spending-input">Set Category's Spending Limit</label>
+                    <input type="number" id="set-category-spending-input">
+                    <button type="button" id="set-category-spending-btn">Set Limit</button>
+                  </div>
+                </div>
+            </div>
+        </section>
         <section id="inputs-section">
             <div class="input-group">
-                <label for="expense-desc">Expense Description</label>
-                <div>
-                    <input type="text" id="expense-desc" class="description">
+                <div class="select-group">
+                    <label for="category-select">Select a Category</label>
+                    <select name="categories" id="category-select">
+                        <option value="">Please choose an option</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
                 <label for="expense">Expense Amount</label>
                 <div>
@@ -24,10 +52,6 @@
                 </div>
             </div>
             <div class="input-group">
-                <label for="income-desc">Income Description</label>
-                <div>
-                    <input type="text" id="income-desc" class="description">
-                </div>
                 <label for="income">Income Amount</label>
                 <div>
                     <input type="number" id="income">
@@ -37,14 +61,30 @@
         </section>
         <section id="results-section">
             <h2>My Ledger</h2>
+            <p>Filter By:</p>
+            <div id="radios">
+                <fieldset>
+                    <input type="radio" name="radio" id="radio-year">
+                    <label for="radio-year">Year</label>
+                    <input type="radio" name="radio" id="radio-month">
+                    <label for="radio-year">Month</label>
+                    <input type="radio" name="radio" id="radio-both" checked>
+                    <label for="radio-both">Both</label>
+                    <input type="radio" name="radio" id="radio-all-time">
+                    <label for="radio-all-time">All-Time</label>
+                </fieldset>
+            </div>
             <div id="ledger">
-                <div id="expense-area"></div>
-                <div id="income-area"></div>
+                <div id="parameters">
+                    <select name="year-select" id="year-select"></select>
+                    <select name="month-select" id="month-select"></select>
+                </div>
+                <div id="results"></div>
             </div>
         </section>
     </main>
     <footer></footer>
 
-    <script src="scripts/index.js"></script>
+    <script type="module" src="scripts/index.js"></script>
 </body>
 </html>

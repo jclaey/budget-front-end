@@ -85,13 +85,4 @@ header {
 /* ledger section */
 #ledger {
     width: 100%;
-    display: flex;
-}
-
-#ledger #expense-area {
-    width: 50%;
-}
-
-#ledger #income-area {
-    width: 50%;
 }
